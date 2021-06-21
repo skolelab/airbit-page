@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20="
+      crossorigin="anonymous"
+    />
+    <!-- Source Code Pro Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+      crossorigin="anonymous"
+    />
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"
+      integrity="sha256-iYUgmrapfDGvBrePJPrMWQZDcObdAcStKBpjP3Az+3s="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"
+      integrity="sha256-XzD3RpaHPv7lzX9qt+2n1j5cWj48O24KsgaGYpKN8x8="
+      crossorigin="anonymous"
+    />
+    <!-- air:bit custom styling -->
+    <link rel="stylesheet" href="/public/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+      <a class="navbar-brand" href="/">air:bit</a>
+
+      <button
+        class="navbar-toggler navbar-toggler-right custom-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-controls="navbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/upload">Last opp data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/history">Søk i tid</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/live">Live</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="container-fluid">
+        <ul id="index-left-nav" class="nav justify-content-begin">
+          <li class="nav-item">
+            <a class="nav-link" href="#english">English</a>
+          </li>
+        </ul>
+
+        <ul id="index-nav" class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" id="nav-wiki-home" href="/public/wiki/Home.html"
+              >Programmering</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="nav-wiki-build"
+              href="/public/wiki/Guide-Bygging-og-Lodding.html"
+              >Bygging</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="nav-resources" href="/resources"
+              >Ressurser</a
+            >
+          </li>
+        </ul>
+        <br style="clear: both" />
+
+        <div class="jumbotron" id="om">
+          <div id="splash">
+            <img
+              id="logo"
+              alt="air:bit logo"
+              src="public/img/airbit-logo-blue.png"
+            />
+          </div>
+          <h1 class="display-3" id="om-intro">Hei!</h1>
+          <p class="lead">
+            Velkommen til
+            <strong
+              >air:bit &ndash; Et forskningsproskekt om luftforurensing</strong
+            >
+            av
+            <a href="https://uit.no/skolelab" target="_blank"
+              >Skolelaboratoriet i realfag og teknologi</a
+            >
+            ved
+            <a href="https://uit.no/" target="_blank"
+              >UiT Norges arktiske universitet</a
+            >.
+          </p>
+          <p class="lead">
+            På denne siden kan du se på, og laste ned luftforurensningsdata som
+            er samlet inn av elever på Videregående skoler i hele Nord-Norge!
+            Elevene skal selv bygge en air:bit som består av GPS, en støvmåler,
+            luftfuktighetsmåler og temperatursensor i tillegg til et minnekort
+            for å logge målingene.
+          </p>
+          <p class="lead">
+            Gå til våre
+            <strong>
+              <a href="public/wiki/Home.html">Wiki-sider</a>
+            </strong>
+            for mer informasjon samt
+            <a href="public/wiki/airbit-Guider.html">guider</a> om bygging og
+            programmering av air:bit sensoren.
+          </p>
+          <p class="lead">
+            På denne siden finner du også luftkvalitetsdata fra
+            <a href="https://www.nilu.no/" target="_blank"
+              >Norsk Institutt for Luftforskning (NILU)</a
+            >
+            her, i tillegg til værdata fra
+            <a href="https://met.no/" target="_blank">Meteorologisk Instiutt</a
+            >.
+          </p>
+          <hr class="my-4" />
+          <h2 id="english">For English readers</h2>
+          <p class="lead">
+            Welcome to
+            <strong>air:bit &ndash; A science project on air pollution</strong>
+            by the
+            <a href="https://uit.no/skolelab" target="_blank"
+              >School Laboratory in science and technology</a
+            >
+            at
+            <a href="https://en.uit.no/" target="_blank"
+              >UiT The arctic university of Norway</a
+            >.
+          </p>
+          <p class="lead">
+            On this website you can view and download air pollution data
+            collected by students at Upper Secondary Schools throughout the
+            whole of Northern Norway! The students build their own air:bit
+            sensor from its individual components consisting of a GPS module, a
+            dust particle sensor, a temperature and humidity sensor and a memory
+            card reader to store the collected measurements.
+          </p>
+          <p class="lead">
+            We integrate air quality data from the official data feeds provided
+            by
+            <a href="https://www.nilu.no/" target="_blank"
+              >NILU &ndash; Norwegian Institute for Air Research</a
+            >
+            as well as weather records from
+            <a href="https://www.met.no/en" target="_blank"
+              >The Norwegian Meteorological Institute</a
+            >.
+          </p>
+          <p class="lead">
+            As this project targets Norwegian Upper Secondary School students,
+            the resources, videos and teaching materials found on this site are
+            primarily in Norwegian language. We will be working with translating
+            the material to English.
+            <br />In the meantime you can use
+            <a
+              href="https://translate.google.com/translate?hl=en&amp;sl=no&amp;tl=en&amp;u=http%3A%2F%2Fairbit.uit.no%2Fpublic%2Fwiki%2FHome.html"
+              target="_blank"
+              >Google Translate</a
+            >
+            to read through our teaching material. We realize that using Google
+            Translate is not ideal, but it will allow non-Norwegian readers to
+            get more information about our project while we work on translating
+            everything properly.
+          </p>
+          <p class="lead">
+            Please contact us for more information or visit the project site on
+            <a
+              target="_blank"
+              href="https://github.com/fjukstad/luft"
+              title="The air:bit repository on GitHub"
+              >GitHub</a
+            >.
+          </p>
+        </div>
+        <!-- jquery -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Tether -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"
+          integrity="sha256-mIiWebTG82x+OcV3vUA49ffGDIAJ53uC9jflw5/+REs="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Bootstrap -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Leaflet -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"
+          integrity="sha256-CNm+7c26DTTCGRQkM9vp7aP85kHFMqs9MhPEuytF+fQ="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"
+          integrity="sha256-jzmB6xy6L0YPzPeu+ccUiPKp3UE+qRmo5xmq5BbnSv0="
+          crossorigin="anonymous"
+        ></script>
+        <!-- D3 -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"
+          integrity="sha256-hYXbQJK4qdJiAeDVjjQ9G0D6A0xLnDQ4eJI9dkm7Fpk="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Google Analytics -->
+        <script>
+          (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+              i[r] ||
+              function () {
+                (i[r].q = i[r].q || []).push(arguments);
+              }),
+              (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+          })(
+            window,
+            document,
+            "script",
+            "https://www.google-analytics.com/analytics.js",
+            "ga"
+          );
+
+          ga("create", "UA-93186535-1", "auto");
+          ga("send", "pageview");
+        </script>
+        <!-- JSZip -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"
+          integrity="sha256-PZ/OvdXxEW1u3nuTAUCSjd4lyaoJ3UJpv/X11x2Gi5c="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js"
+          integrity="sha256-AIk6chbus7IS5RVpqSNV1X7Qihbi1YC0lOLuUXQZ+mw="
+          crossorigin="anonymous"
+        ></script>
+        <!-- File Saver -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"
+          integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Plottly.js -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.35.2/plotly.min.js"
+          integrity="sha256-8V0aGlTBG5O6hYvFhYiFwKkLqs6CO83YiFws7pIPJls="
+          crossorigin="anonymous"
+        ></script>
+        <!-- moment.js -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"
+          integrity="sha256-9YAuB2VnFZNJ+lKfpaQ3dKQT9/C0j3VUla76hHbiVF8="
+          crossorigin="anonymous"
+        ></script>
+
+        <script type="text/javascript" src="/public/js/vis.js"></script>
+        <script type="text/javascript" src="/public/js/history.js"></script>
+
+        <hr class="my-4" />
+        <footer id="footer" class="footer"><p>
+		Kontakt:
+		<a href="mailto:skolelaboratoriet@nt.uit.no">skolelaboratoriet@nt.uit.no</a>
+		<br/>
+		<a href="mailto:Edvard%20Pedersen%20&lt;edvard.pederseb@uit.no&gt;">Edvard Pedersen: edvard.pedersen@uit.no</a>
+		<br/>
+		<a href="mailto:H&aring;kon%20Wallann%20&lt;hakon.wallann@uit.no&gt;">Håkon Wallann: hakon.wallann@uit.no</a>
+	      </p>
+	      <p>
+		<a target="_blank" href="https://uit.no/skolelab" title="Skolelaboratoriet i realfag og teknologi">
+		  <img style="max-width: 300px" alt="Skolelaboratoriet i realfag og teknologi" src="https://uit.no/Content/393666/skolelaboratoriet.jpg"
+		  />
+		</a>
+	      </p>
+	      <p>
+		Se også prosjektets side på
+		<a target="_blank" href="https://github.com/fjukstad/luft" title="air:bit reposotoriet på GitHub">GitHub</a>.
+	      </p></footer>
+      </div>
+    </div>
+  </body>
+</html>
