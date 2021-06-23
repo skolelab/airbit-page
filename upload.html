@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20="
+      crossorigin="anonymous"
+    />
+    <!-- Source Code Pro Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+      crossorigin="anonymous"
+    />
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"
+      integrity="sha256-iYUgmrapfDGvBrePJPrMWQZDcObdAcStKBpjP3Az+3s="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"
+      integrity="sha256-XzD3RpaHPv7lzX9qt+2n1j5cWj48O24KsgaGYpKN8x8="
+      crossorigin="anonymous"
+    />
+    <!-- air:bit custom styling -->
+    <link rel="stylesheet" href="/public/css/style.css" />
+    {{ end }}
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+      <a class="navbar-brand" href="/">air:bit</a>
+
+      <button
+        class="navbar-toggler navbar-toggler-right custom-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-controls="navbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/upload">Last opp data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/history">Søk i tid</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/live">Live</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div
+              id="browserCompat-summary"
+              class="col-6 col-sm-6 offset-3 text-center"
+            ></div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-sm-6 offset-3 mb-3" id="input-div">
+              <h4>Last opp fil(er)</h4>
+              <form
+                id="upload-form"
+                method="POST"
+                enctype="multipart/form-data"
+                action="javascript:void(0);"
+                onsubmit="uploadFormSubmit(this);"
+              >
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">CSV Data</span>
+                  </div>
+                  <div class="custom-file">
+                    <input
+                      style="cursor: pointer"
+                      type="file"
+                      multiple="multiple"
+                      class="custom-file-input"
+                      name="uploadFile"
+                      id="uploadFile"
+                      lang="no"
+                    />
+                    <label class="custom-file-label" for="uploadFile"
+                      >Velg Datafil for opplastning</label
+                    >
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button id="emptyBtn" type="button" class="btn btn-primary">
+                    Tøm
+                  </button>
+                  <button
+                    id="validateBtn"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Validér
+                  </button>
+                  <input
+                    type="submit"
+                    class="btn btn-primary"
+                    value="Last opp"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-10 col-sm-10 offset-1" id="summaries-div">
+              <div id="upload-summary"></div>
+              <div id="validation-summary"></div>
+            </div>
+          </div>
+        </div>
+        <!-- jquery -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Tether -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"
+          integrity="sha256-mIiWebTG82x+OcV3vUA49ffGDIAJ53uC9jflw5/+REs="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Bootstrap -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Leaflet -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"
+          integrity="sha256-CNm+7c26DTTCGRQkM9vp7aP85kHFMqs9MhPEuytF+fQ="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"
+          integrity="sha256-jzmB6xy6L0YPzPeu+ccUiPKp3UE+qRmo5xmq5BbnSv0="
+          crossorigin="anonymous"
+        ></script>
+        <!-- D3 -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"
+          integrity="sha256-hYXbQJK4qdJiAeDVjjQ9G0D6A0xLnDQ4eJI9dkm7Fpk="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Google Analytics -->
+        <script>
+          (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+              i[r] ||
+              function () {
+                (i[r].q = i[r].q || []).push(arguments);
+              }),
+              (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+          })(
+            window,
+            document,
+            "script",
+            "https://www.google-analytics.com/analytics.js",
+            "ga"
+          );
+
+          ga("create", "UA-93186535-1", "auto");
+          ga("send", "pageview");
+        </script>
+        <!-- JSZip -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"
+          integrity="sha256-PZ/OvdXxEW1u3nuTAUCSjd4lyaoJ3UJpv/X11x2Gi5c="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js"
+          integrity="sha256-AIk6chbus7IS5RVpqSNV1X7Qihbi1YC0lOLuUXQZ+mw="
+          crossorigin="anonymous"
+        ></script>
+        <!-- File Saver -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"
+          integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE="
+          crossorigin="anonymous"
+        ></script>
+        <!-- Plottly.js -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.35.2/plotly.min.js"
+          integrity="sha256-8V0aGlTBG5O6hYvFhYiFwKkLqs6CO83YiFws7pIPJls="
+          crossorigin="anonymous"
+        ></script>
+        <!-- moment.js -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"
+          integrity="sha256-9YAuB2VnFZNJ+lKfpaQ3dKQT9/C0j3VUla76hHbiVF8="
+          crossorigin="anonymous"
+        ></script>
+
+        <script type="text/javascript" src="/public/js/vis.js"></script>
+        <script type="text/javascript" src="/public/js/history.js"></script>
+        <script>
+          $(document).ready(function () {
+            // if (true) {
+            if (
+              !window.File ||
+              !window.FileReader ||
+              !window.FileList ||
+              !window.Blob
+            ) {
+              $("#browserCompat-summary").append(
+                $(document.createElement("div"))
+                  .addClass("alert")
+                  .addClass("alert-danger")
+                  .attr("role", "alert")
+                  .append(
+                    $(document.createElement("strong")).text(
+                      "Problem med nettleseren!"
+                    )
+                  )
+                  .append($(document.createElement("br")))
+                  .append(
+                    $(
+                      document.createTextNode(
+                        "Din nettleser støtter ikke lesing av filer gjennom JavaScript."
+                      )
+                    )
+                  )
+                  .append($(document.createElement("br")))
+                  .append(
+                    $(
+                      document.createTextNode(
+                        "Validering av CSV filer vil ikke være tilgjengelig."
+                      )
+                    )
+                  )
+                  .append($(document.createElement("br")))
+                  .append(
+                    $(
+                      document.createTextNode(
+                        "Opplastning av data vil fortsatt fungere."
+                      )
+                    )
+                  )
+              );
+            }
+          });
+        </script>
+        <script>
+          $("#uploadFile").on("change", function (ev) {
+            var labelText = "";
+            for (var i = 0; i < this.files.length; i++) {
+              if (labelText.length > 0) {
+                labelText += ", ";
+              }
+              labelText += this.files[i].name;
+            }
+            $("[for=" + this.id + "]").text(labelText);
+          });
+        </script>
+        <script>
+          $("#emptyBtn").on("click", function (ev) {
+            $("#uploadFile").val("");
+            $("[for=uploadFile]").text("Velg Datafil for opplastning");
+            $("#upload-summary").empty();
+            $("#validation-summary").empty();
+          });
+        </script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.7/papaparse.min.js"
+          integrity="sha256-gCPcsL+cnlJNro1gRMdelVcE6dXBCk67CvTLlArf74A="
+          crossorigin="anonymous"
+        ></script>
+        <script>
+          /**
+           * @param {number} row
+           * @param {number} col
+           * @param {string} value
+           * @param {any[]} errors
+           */
+          function headerCheck(row, col, value, errors) {
+            /** @type {string | undefined} */
+            var searchString = undefined;
+            /** @type {string | undefined} */
+            var expectedString = undefined;
+            switch (col) {
+              case 0:
+                searchString = "TIME";
+                expectedString = "Time";
+                break;
+              case 1:
+                searchString = "LAT";
+                expectedString = "Latitude";
+                break;
+              case 2:
+                searchString = "LON";
+                expectedString = "Longitude";
+                break;
+              case 3:
+                searchString = "PM10";
+                expectedString = "PM10";
+                break;
+              case 4:
+                searchString = "PM2";
+                expectedString = "PM2.5";
+                break;
+              case 5:
+                searchString = "HUMIDITY";
+                expectedString = "Humidity";
+                break;
+              case 6:
+                searchString = "TEMP";
+                expectedString = "Temperature";
+                break;
+            }
+
+            if (
+              typeof searchString !== "undefined" &&
+              !value.toUpperCase().includes(searchString)
+            ) {
+              errors.push({
+                row: row,
+                type: "Heading",
+                code: "HeaderMismatch",
+                message:
+                  "Unexpected header '" +
+                  value +
+                  "', expected '" +
+                  expectedString +
+                  "'.",
+              });
+            }
+          }
+
+          $("#validateBtn").on("click", function (ev) {
+            $(this).attr("disabled", true);
+            if (
+              !window.File ||
+              !window.FileReader ||
+              !window.FileList ||
+              !window.Blob
+            ) {
+              return;
+            }
+
+            // Empty previous (if any) validation summary
+            $("#validation-summary").empty();
+
+            $("#uploadFile").parse({
+              config: {
+                preview: 50, // Only parse the first 50 lines of each file
+                skipEmptyLines: true,
+                fastMode: true,
+                /** @param {File} file */
+                complete: function (results, file) {
+                  console.info(results.meta);
+                  if (
+                    typeof results.errors === "undefined" ||
+                    !results.errors
+                  ) {
+                    results.errors = [];
+                  }
+                  for (var i = 0; i < results.data.length; i++) {
+                    var rowCells = results.data[i];
+                    for (var j = 0; j < rowCells.length; j++) {
+                      if (j == 0) {
+                        var time = new Date(rowCells[j]);
+                        if (isNaN(time.valueOf())) {
+                          if (i == 0) {
+                            headerCheck(i, j, rowCells[j], results.errors);
+                          } else {
+                            results.errors.push({
+                              row: i,
+                              type: "Content",
+                              code: "InvalidTimeFormat",
+                              message:
+                                "Unable to parse string '" +
+                                rowCells[j] +
+                                "' as a Timestamp",
+                            });
+                          }
+                        }
+                      } else if (j < 7) {
+                        // 1 <= j < 7
+                        var float = parseFloat(rowCells[j]);
+                        if (isNaN(float)) {
+                          if (i == 0) {
+                            headerCheck(i, j, rowCells[j], results.errors);
+                          } else {
+                            results.errors.push({
+                              row: i,
+                              type: "Content",
+                              code: "NumerIsNaN",
+                              message:
+                                "'" + rowCells[j] + "' parses to a NaN value.",
+                            });
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  if (results.errors.length) {
+                    var csvParseErrorTableBody =
+                      document.createElement("tbody");
+                    for (var i = 0; i < results.errors.length; i++) {
+                      var error = results.errors[i];
+                      $(csvParseErrorTableBody).append(
+                        $(document.createElement("tr"))
+                          .append(
+                            $(document.createElement("td")).text(error.row)
+                          )
+                          .append(
+                            $(document.createElement("td")).text(error.type)
+                          )
+                          .append(
+                            $(document.createElement("td")).append(
+                              $(document.createElement("code")).text(error.code)
+                            )
+                          )
+                          .append(
+                            $(document.createElement("td")).text(error.message)
+                          )
+                      );
+                    }
+                    $("#validation-summary").append(
+                      $(document.createElement("div"))
+                        .addClass("alert")
+                        .addClass("alert-warning")
+                        .attr("role", "alert")
+                        .append(
+                          $(document.createElement("strong"))
+                            .append(document.createTextNode("CSV Validering: "))
+                            .append(
+                              $(document.createElement("code")).text(file.name)
+                            )
+                        )
+                        .append(
+                          $(document.createElement("div"))
+                            .addClass("mb-0")
+                            .addClass("table-responsive")
+                            .append(
+                              $(document.createElement("table"))
+                                .addClass("table")
+                                .addClass("table-sm")
+                                .append(
+                                  $(document.createElement("thead")).append(
+                                    $(document.createElement("tr"))
+                                      .append(
+                                        $(document.createElement("th")).text(
+                                          "Rad"
+                                        )
+                                      )
+                                      .append(
+                                        $(document.createElement("th")).text(
+                                          "Type"
+                                        )
+                                      )
+                                      .append(
+                                        $(document.createElement("th")).text(
+                                          "Kode"
+                                        )
+                                      )
+                                      .append(
+                                        $(document.createElement("th")).text(
+                                          "Melding"
+                                        )
+                                      )
+                                  )
+                                )
+                                .append(csvParseErrorTableBody)
+                            )
+                        )
+                        .addClass("alert-dismissible")
+                        .addClass("fade")
+                        .addClass("show")
+                        .append(
+                          $(document.createElement("button"))
+                            .addClass("close")
+                            .attr("type", "button")
+                            .attr("data-dismiss", "alert")
+                            .attr("aria-label", "Lukk")
+                            .append(
+                              $(document.createElement("span"))
+                                .attr("aria-hidded", true)
+                                .html("&times;")
+                            )
+                        )
+                    );
+                  } else {
+                    $("#validation-summary").append(
+                      $(document.createElement("div"))
+                        .addClass("alert")
+                        .addClass("alert-success")
+                        .attr("role", "alert")
+                        .append(
+                          $(document.createElement("strong"))
+                            .append(document.createTextNode("CSV Validering: "))
+                            .append(
+                              $(document.createElement("code")).text(file.name)
+                            )
+                        )
+                        .append(document.createElement("br"))
+                        .append(
+                          document.createTextNode(
+                            "Validering vellykket. Fant ingen feil."
+                          )
+                        )
+                        .addClass("alert-dismissible")
+                        .addClass("fade")
+                        .addClass("show")
+                        .append(
+                          $(document.createElement("button"))
+                            .addClass("close")
+                            .attr("type", "button")
+                            .attr("data-dismiss", "alert")
+                            .attr("aria-label", "Lukk")
+                            .append(
+                              $(document.createElement("span"))
+                                .attr("aria-hidded", true)
+                                .html("&times;")
+                            )
+                        )
+                    );
+                  }
+                },
+                /** @param {File} file */
+                error: function (error, file) {
+                  $("#validation-summary").append(
+                    $(document.createElement("div"))
+                      .addClass("alert")
+                      .addClass("alert-danger")
+                      .attr("role", "alert")
+                      .append(
+                        $(document.createElement("strong"))
+                          .append(
+                            document.createTextNode(
+                              "Kunne ikke åpne fil for validering: "
+                            )
+                          )
+                          .append(
+                            $(document.createElement("code")).text(file.name)
+                          )
+                      )
+                      .append(
+                        $(document.createElement("div"))
+                          .addClass("mb-0")
+                          .html(error)
+                      )
+                      .addClass("alert-dismissible")
+                      .addClass("fade")
+                      .addClass("show")
+                      .append(
+                        $(document.createElement("button"))
+                          .addClass("close")
+                          .attr("type", "button")
+                          .attr("data-dismiss", "alert")
+                          .attr("aria-label", "Lukk")
+                          .append(
+                            $(document.createElement("span"))
+                              .attr("aria-hidded", true)
+                              .html("&times;")
+                          )
+                      )
+                  );
+                },
+              },
+              before:
+                /**
+                 * @param {File} file
+                 * @param {HTMLElement} inputElem
+                 */
+                function (file, inputElem) {
+                  var extIdx = file.name.lastIndexOf(".");
+                  var extStr = undefined;
+                  var nameWithoutExt = file.name;
+                  var invalidExt = false;
+                  if (extIdx > 0) {
+                    nameWithoutExt = file.name.slice(0, extIdx);
+                    extStr = file.name.slice(extIdx);
+                  }
+                  if (
+                    typeof extStr === "undefined" ||
+                    extStr.toUpperCase() != ".CSV"
+                  ) {
+                    extStr = ".csv";
+                    invalidExt = true;
+                  }
+                  var invalidName = false;
+                  var lA = "a".charCodeAt(0);
+                  var uA = "A".charCodeAt(0);
+                  var lZ = "x".charCodeAt(0);
+                  var uZ = "Z".charCodeAt(0);
+                  var d0 = "0".charCodeAt(0);
+                  var d9 = "9".charCodeAt(0);
+                  var dot = ".".charCodeAt(0);
+                  for (var i = 0; i < nameWithoutExt.length; i++) {
+                    var ch = nameWithoutExt.charCodeAt(i);
+                    if (
+                      (ch >= lA && ch <= lZ) ||
+                      (ch >= uA && ch <= uZ) ||
+                      (ch >= d0 && ch <= d9) ||
+                      ch == dot
+                    ) {
+                      continue;
+                    }
+                    invalidName = true;
+                    nameWithoutExt =
+                      nameWithoutExt.slice(0, i) +
+                      "_" +
+                      nameWithoutExt.slice(i + 1);
+                  }
+                  if (!invalidExt && !invalidName) {
+                    return;
+                  }
+
+                  var filenameErrorUl = document.createElement("ul");
+                  $(filenameErrorUl).addClass("mb-0");
+                  if (invalidName) {
+                    $(filenameErrorUl).append(
+                      $(document.createElement("li"))
+                        .append(
+                          document.createTextNode(
+                            "Ikke aksepterte tegn i navnet"
+                          )
+                        )
+                        .append(document.createElement("br"))
+                        .append(
+                          $(document.createElement("em")).text(
+                            "Kun siffrer, punktum, små og store bokstaver kan brukes i filnavnet. Mellomrom, Æ, Ø og Å er ikke tilatt."
+                          )
+                        )
+                    );
+                  }
+                  if (invalidExt) {
+                    $(filenameErrorUl).append(
+                      $(document.createElement("li"))
+                        .append(
+                          document.createTextNode("Filutvidelsen er ikke ")
+                        )
+                        .append($(document.createElement("code")).text(".csv"))
+                        .append(document.createElement("br"))
+                        .append(
+                          $(document.createElement("em"))
+                            .append(
+                              document.createTextNode(
+                                "Filnavnet burde slutte på "
+                              )
+                            )
+                            .append(
+                              $(document.createElement("code")).text(".csv")
+                            )
+                            .append(
+                              document.createTextNode(
+                                " for å vise at du har en fil med komma-separerte verdier."
+                              )
+                            )
+                        )
+                    );
+                  }
+                  $("#validation-summary").append(
+                    $(document.createElement("div"))
+                      .addClass("alert")
+                      .addClass("alert-info")
+                      .attr("role", "alert")
+                      .addClass("alert-dismissible")
+                      .addClass("fade")
+                      .addClass("show")
+                      .append(
+                        $(document.createElement("strong"))
+                          .append(document.createTextNode("Ugyldig Filnavn: "))
+                          .append(
+                            $(document.createElement("code")).text(file.name)
+                          )
+                      )
+                      .append(document.createElement("br"))
+                      .append(filenameErrorUl)
+                      .append(
+                        document.createTextNode(
+                          "air:bit systemet vil internt bruke filnavnet "
+                        )
+                      )
+                      .append(
+                        $(document.createElement("code")).text(
+                          nameWithoutExt + extStr
+                        )
+                      )
+                      .append(
+                        document.createTextNode(
+                          " for å unngå problemer når filen prosesseres."
+                        )
+                      )
+                      .append(
+                        $(document.createElement("button"))
+                          .addClass("close")
+                          .attr("type", "button")
+                          .attr("data-dismiss", "alert")
+                          .attr("aria-label", "Lukk")
+                          .append(
+                            $(document.createElement("span"))
+                              .attr("aria-hidded", true)
+                              .html("&times;")
+                          )
+                      )
+                  );
+                },
+              error: function (err, file, inputElem, reason) {
+                $("#validation-summary").append(
+                  $(document.createElement("div"))
+                    .addClass("alert")
+                    .addClass("alert-danger")
+                    .attr("role", "alert")
+                    .append(
+                      $(document.createElement("strong"))
+                        .append(
+                          document.createTextNode(
+                            "Kunne ikke åpne fil for validering: "
+                          )
+                        )
+                        .append(
+                          $(document.createElement("code")).text(file.name)
+                        )
+                    )
+                    .append(
+                      $(document.createElement("div"))
+                        .addClass("mb-0")
+                        .html(reason)
+                    )
+                    .append(
+                      $(document.createElement("div"))
+                        .addClass("mb-0")
+                        .html(err)
+                    )
+                    .addClass("alert-dismissible")
+                    .addClass("fade")
+                    .addClass("show")
+                    .append(
+                      $(document.createElement("button"))
+                        .addClass("close")
+                        .attr("type", "button")
+                        .attr("data-dismiss", "alert")
+                        .attr("aria-label", "Lukk")
+                        .append(
+                          $(document.createElement("span"))
+                            .attr("aria-hidded", true)
+                            .html("&times;")
+                        )
+                    )
+                );
+              },
+              complete: function () {
+                $("#validateBtn").removeAttr("disabled");
+              },
+            });
+          });
+        </script>
+        <script>
+          var uploadCounter = 0;
+
+          /** @param {HTMLFormElement} form */
+          function uploadFormSubmit(form) {
+            var thisUploadId = uploadCounter;
+            uploadCounter++;
+            // Empty previous (if any) upload summary
+            $("#upload-summary").empty();
+            // Disable Form submit button
+            $("input[type=submit]", form).attr("disabled", true);
+            // Click on the validate button
+            $("#validateBtn").click();
+
+            /** @type {FileList} */
+            var fileList = $("#uploadFile").prop("files");
+            if (fileList.length < 1) {
+              console.warn("Ingen filer valgt!", fileList);
+              $("#upload-summary").append(
+                $(document.createElement("div"))
+                  .addClass("alert")
+                  .addClass("alert-danger")
+                  .attr("role", "alert")
+                  .addClass("alert-dismissible")
+                  .addClass("fade")
+                  .addClass("show")
+                  .append(
+                    $(document.createElement("strong")).text(
+                      "Ingen filer valgt!"
+                    )
+                  )
+                  .append(document.createElement("br"))
+                  .append(
+                    document.createTextNode(
+                      "Venligt angi minst én fil før du trykker 'Last opp'."
+                    )
+                  )
+                  .append(
+                    $(document.createElement("button"))
+                      .addClass("close")
+                      .attr("type", "button")
+                      .attr("data-dismiss", "alert")
+                      .attr("aria-label", "Lukk")
+                      .append(
+                        $(document.createElement("span"))
+                          .attr("aria-hidded", true)
+                          .html("&times;")
+                      )
+                  )
+              );
+              // Re-enable Form submit button
+              $("input[type=submit]", form).removeAttr("disabled");
+              return;
+            }
+
+            var fileNameString = "";
+            for (var i = 0; i < fileList.length; i++) {
+              if (fileNameString.length > 0) {
+                fileNameString += ", ";
+              }
+              fileNameString += fileList[i].name;
+            }
+
+            var additionalInfoDiv = document.createElement("div");
+            var progressBarDiv = document.createElement("div");
+            $(progressBarDiv)
+              .addClass("progress-bar")
+              .attr("role", "progressbar")
+              .attr("aria-valuemin", 0)
+              .attr("aria-valuemax", 100)
+              .addClass("progress-bar-striped")
+              .addClass("progress-bar-animated")
+              .width("100%")
+              .attr("aria-valuenow", 100)
+              .text("Åpner fil(er)");
+            var progressDiv = document.createElement("div");
+            $(progressDiv).addClass("progress").append(progressBarDiv);
+            var alertDiv = document.createElement("div");
+            $(alertDiv)
+              .addClass("alert")
+              .addClass("alert-primary")
+              .attr("role", "alert")
+              .append(
+                $(document.createElement("strong")).text(
+                  "Laster opp datafil(er)"
+                )
+              )
+              .append(document.createElement("br"))
+              .append($(document.createElement("strong")).text("Filnavn:"))
+              .append(document.createTextNode(" "))
+              .append(document.createTextNode(fileNameString))
+              .append(document.createElement("br"))
+              .append(additionalInfoDiv)
+              .append(progressDiv);
+            $("#upload-summary").append(alertDiv);
+            var formData = new FormData(form);
+            $.ajax("sendfile", {
+              type: "POST",
+              dataType: "html",
+              data: formData,
+              processData: false,
+              contentType: false,
+              beforeSend: function (jqXhr, settings) {
+                $(progressBarDiv)
+                  .width("100%")
+                  .attr("aria-valuenow", 100)
+                  .addClass("progress-bar-striped")
+                  .addClass("progress-bar-animated")
+                  .text("Laster opp fil(er)...");
+                var updateProgressBar =
+                  /** @param {ProgressEvent} ev */ function (ev) {
+                    if (ev.lengthComputable) {
+                      var progressPercent = (ev.loaded / ev.total) * 100.0;
+                      $(progressBarDiv)
+                        .width("" + progressPercent + "%")
+                        .attr("aria-valuenow", progressPercent)
+                        .removeClass("progress-bar-striped")
+                        .removeClass("progress-bar-animated")
+                        .text("" + ev.loaded + " / " + ev.total);
+                    } else {
+                      $(progressBarDiv)
+                        .width("100%")
+                        .attr("aria-valuenow", 100)
+                        .addClass("progress-bar-striped")
+                        .addClass("progress-bar-animated")
+                        .text("" + ev.loaded + " / " + ev.total);
+                    }
+                  };
+                jqXhr.onprogress = function (ev) {
+                  switch (this.readyState) {
+                    case XMLHttpRequest.UNSENT:
+                      $(additionalInfoDiv)
+                        .empty()
+                        .text("Starter opplastning...");
+                      updateProgressBar(ev);
+                      break;
+                    case XMLHttpRequest.OPENED:
+                      $(additionalInfoDiv)
+                        .empty()
+                        .text("Laster opp datafil(er)...");
+                      if (
+                        typeof this.upload !== "undefined" &&
+                        typeof this.upload.onprogress !== "function"
+                      ) {
+                        this.upload.onprogress = function (uploadEv) {
+                          updateProgressBar(uploadEv);
+                        };
+                      } else {
+                        updateProgressBar(ev);
+                      }
+                      break;
+                    case XMLHttpRequest.HEADERS_RECEIVED:
+                    case XMLHttpRequest.LOADING:
+                      $(additionalInfoDiv)
+                        .empty()
+                        .text("Opplastning fullført, mottar svar...");
+                      updateProgressBar(ev);
+                      break;
+                    case XMLHttpRequest.DONE:
+                      $(additionalInfoDiv)
+                        .empty()
+                        .text("Opplastning fullført, svar tilgjengelig.");
+                      updateProgressBar(ev);
+                      break;
+                  }
+                };
+              },
+              success: function (data, textStatus, jqXhr) {
+                $(alertDiv)
+                  .removeClass("alert-success")
+                  .addClass("alert-success");
+                $(progressDiv).remove();
+                $(additionalInfoDiv).html(data);
+              },
+              error: function (jqXhr, textStatus, errorThrown) {
+                $(alertDiv)
+                  .removeClass("alert-primary")
+                  .addClass("alert-danger");
+                $(additionalInfoDiv).empty();
+                if (typeof textStatus !== "undefined" && textStatus) {
+                  $(additionalInfoDiv)
+                    .append($(document.createElement("strong")).text("Status:"))
+                    .append(document.createTextNode(" "))
+                    .append($(document.createElement("span")).html(textStatus));
+                }
+                if (typeof errorThrown !== "undefined" && errorThrown) {
+                  $(additionalInfoDiv)
+                    .append(document.createElement("br"))
+                    .append($(document.createElement("strong")).text("Error:"))
+                    .append(document.createTextNode(" "))
+                    .append(
+                      $(document.createElement("span")).html(errorThrown)
+                    );
+                }
+                $(progressBarDiv)
+                  .addClass("bg-danger")
+                  .text("Opplastning feilet");
+              },
+              complete: function (jqXhr, textStatus) {
+                $(progressBarDiv).width("100%").attr("aria-valuenow", 100);
+                $(alertDiv)
+                  .addClass("alert-dismissible")
+                  .addClass("fade")
+                  .addClass("show")
+                  .append(
+                    $(document.createElement("button"))
+                      .addClass("close")
+                      .attr("type", "button")
+                      .attr("data-dismiss", "alert")
+                      .attr("aria-label", "Lukk")
+                      .append(
+                        $(document.createElement("span"))
+                          .attr("aria-hidded", true)
+                          .html("&times;")
+                      )
+                  );
+                // Re-enable Form submit button
+                $("input[type=submit]", form).removeAttr("disabled");
+              },
+            });
+          }
+        </script>
+
+        <hr class="my-4" />
+        <footer id="footer" class="footer">
+          <p>
+            Kontakt:
+            <a href="mailto:skolelaboratoriet@nt.uit.no"
+              >skolelaboratoriet@nt.uit.no</a
+            >
+            <br />
+            <a href="mailto:Edvard%20Pedersen%20&lt;edvard.pederseb@uit.no&gt;"
+              >Edvard Pedersen: edvard.pedersen@uit.no</a
+            >
+            <br />
+            <a
+              href="mailto:H&aring;kon%20Wallann%20&lt;hakon.wallann@uit.no&gt;"
+              >Håkon Wallann: hakon.wallann@uit.no</a
+            >
+          </p>
+          <p>
+            <a
+              target="_blank"
+              href="https://uit.no/skolelab"
+              title="Skolelaboratoriet i realfag og teknologi"
+            >
+              <img
+                style="max-width: 300px"
+                alt="Skolelaboratoriet i realfag og teknologi"
+                src="https://uit.no/Content/393666/skolelaboratoriet.jpg"
+              />
+            </a>
+          </p>
+          <p>
+            Se også prosjektets side på
+            <a
+              target="_blank"
+              href="https://github.com/fjukstad/luft"
+              title="air:bit reposotoriet på GitHub"
+              >GitHub</a
+            >.
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
