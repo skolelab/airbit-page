@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="nb-NO" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" charset="utf-8" />
+    <title>Dataformat &ndash; air:bit Wiki</title>
+
+    <!-- Boots -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" integrity="sha256-Zd1icfZ72UBmsId/mUcagrmN7IN5Qkrvh75ICHIQVTk="
+        crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-93186535-1', 'auto');
+        ga('send', 'pageview');</script>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <script src="/public/js/vis.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">air:bit</a>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav my-2 my-lg-0">
+                <li class="nav-item">
+                    <!-- <a class="nav-link" target="_blank" href="https://luft-184208.appspot.com/">Last opp data<span class="sr-only">(current)</span></a> -->
+                    <a class="nav-link" href="/upload">Last opp data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/history">Søk i tid</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/live">Live</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+                    <div class="markdown">
+                        <h1>Dataformat</h1>
+                        <hr />
+                        <h1 id="dataformat">Dataformat</h1>
+<p>Husk at det er viktig at fila dere skriver er en komma-separert fil. Dette betyr
+at den skal starte med en linje som ser slik ut:</p>
+<pre><code class="lang-csv">Time, Latitude, Longitude, PM10, PM25, Humidity, Temperature
+</code></pre>
+<p>og alle de påfølgende linjene i fila skal følge samme mønster, f.eks</p>
+<pre><code class="lang-csv">2000-00-00T00:00:00.000Z,0.000000,0.000000,25.50,4.70,48.60,18.70
+2017-12-13T13:34:35.000Z,69.680770,18.974775,2.50,1.40,23.60,20.20
+2017-12-13T13:34:38.000Z,69.680946,18.974555,2.70,1.50,23.30,20.10
+2017-12-13T13:34:41.000Z,69.681022,18.974626,2.80,1.60,22.90,19.90
+2017-12-13T13:34:41.000Z,69.681022,18.974626,2.80,1.70,23.00,19.80
+2017-12-13T13:34:46.000Z,69.681022,18.974748,2.80,1.80,23.20,19.90
+2017-12-13T13:34:49.000Z,69.681007,18.974828,2.90,1.80,23.20,19.80
+2017-12-13T13:34:52.000Z,69.680992,18.974906,2.90,1.90,23.00,19.70
+2017-12-13T13:34:55.000Z,69.680969,18.974990,2.90,1.90,22.70,19.50
+2017-12-13T13:34:58.000Z,69.680946,18.975065,2.90,2.00,0.00,0.00
+2017-12-13T13:34:58.000Z,69.680946,18.975065,3.00,2.00,22.80,19.40
+2017-12-13T13:35:03.000Z,69.680915,18.975215,3.10,2.00,22.80,19.30
+2017-12-13T13:35:03.000Z,69.680915,18.975215,3.00,2.10,22.60,19.20
+2017-12-13T13:35:08.000Z,69.680892,18.975383,2.80,2.10,22.30,19.10
+2017-12-13T13:35:08.000Z,69.680892,18.975383,2.70,2.10,22.20,19.00
+2017-12-13T13:35:13.000Z,69.680892,18.975561,2.70,2.10,22.00,18.80
+2017-12-13T13:35:16.000Z,69.680885,18.975656,2.70,2.10,21.70,18.70
+2017-12-13T13:35:19.000Z,69.680885,18.975719,2.30,2.20,21.60,18.60
+2017-12-13T13:35:19.000Z,69.680885,18.975719,2.20,2.10,21.40,18.50
+2017-12-13T13:35:24.000Z,69.680892,18.975727,2.20,2.10,21.50,18.50
+2017-12-13T13:35:27.000Z,69.680877,18.975725,2.10,2.00,21.60,18.40
+2017-12-13T13:35:30.000Z,69.680862,18.975769,2.10,2.00,21.70,18.40
+2017-12-13T13:35:33.000Z,69.680847,18.975776,2.10,2.00,21.80,18.30
+</code></pre>
+<h2 id="desimaltall">Desimaltall</h2>
+<p>Som du ser i eksemplet over, brukes det komma <code>,</code> for å separere kolonner, og punktum <code>.</code> for å skille
+mellom siffrer foran og bak desimalen i et desimaltall (f.eks. <code>69.680770</code>).</p>
+<p><code>print</code>- og <code>println</code>-kommandoene i Arduinoen tar imot desimaltall som argument. Du må da angi antall desimaler bak desimal-separatoren som du vil ha printet ut. Om du angir <code>0</code> vil desimaltallet blir avrundet til et heltall uten komma. For eksempel:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">double</span> tall = <span class="hljs-number">42.427</span>;
+Serial.println(tall, <span class="hljs-number">0</span>); <span class="hljs-comment">// -&gt; 42</span>
+Serial.println(tall, <span class="hljs-number">1</span>); <span class="hljs-comment">// -&gt; 42.4</span>
+Serial.println(tall, <span class="hljs-number">2</span>); <span class="hljs-comment">// -&gt; 42.43</span>
+Serial.println(tall, <span class="hljs-number">5</span>); <span class="hljs-comment">// -&gt; 42.42700</span>
+</code></pre>
+<h2 id="format-p-tid-og-dato">Format på tid og dato</h2>
+<p>Du ser at tid og dato vises på en litt uvanlig måte her. Dette er dato- og tidsrepresentasjonen som følger det vi kaller standard <a href="https://no.wikipedia.org/wiki/ISO_8601#Kombinerte_presentasjoner">ISO 8601</a>. Det er en av de mest brukte og uproblematiske måtene å representere et tidspunkt på slik at datamaskinen kan fortstå det:</p>
+<ol>
+<li>Årstall, <strong>4</strong> siffrer</li>
+<li>En bindestrek, <code>-</code></li>
+<li>Månedstall, <strong>2</strong> siffrer</li>
+<li>En bindestrek, <code>-</code></li>
+<li>Dag, <strong>2</strong> siffrer</li>
+<li>En stor bokstav T, <code>T</code></li>
+<li>Timer i 24-timers klokke, <strong>2</strong> siffrer (dvs. <code>04</code> og <code>17</code>, men ikke <code>5 p.m.</code>)</li>
+<li>Et kolon, <code>:</code></li>
+<li>Minutter, <strong>2</strong> siffrer</li>
+<li>Et kolon, <code>:</code></li>
+<li>Sekunder, <strong>2</strong> siffrer. Om du har desimal-sekunder (altså sekunder angitt som kommatall), bruker du punktum, <code>.</code> for å skille mellom siffrer før og etter desimalen.</li>
+<li>Helt til slutt kommer tidssonen. GPS bruker det vi kaller <a href="https://no.wikipedia.org/wiki/UTC">UTC</a> som ligger <strong>én time bak norsk tid</strong> om vinteren, og <strong>to timer bak</strong> om sommeren. <em>I militæret kaller man UTC-tid også for Z- eller Zulu-tid.</em> Bruk en stor bokstav Z for å angi UTC-tidssonen, <code>Z</code></li>
+</ol>
+<p>Se før deg at du har følgende variabler i koden din for å lagre tiden i din air:bit sketch:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> year, month, day, hour, minute;
+<span class="hljs-keyword">double</span> second;
+</code></pre>
+<p>Da kan du bruke følgende kode for å skrive ut tid og dato i korrekt format:</p>
+<pre><code class="lang-cpp"><span class="hljs-comment">// YEAR</span>
+<span class="hljs-keyword">if</span> (year &lt; <span class="hljs-number">10</span>) {
+  Serial.print(<span class="hljs-string">"000"</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (year &lt; <span class="hljs-number">100</span>) {
+  Serial.print(<span class="hljs-string">"00"</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (year &lt; <span class="hljs-number">1000</span>) {
+  Serial.print(<span class="hljs-string">"0"</span>);
+}
+Serial.print(year);
+<span class="hljs-comment">// SEPARATOR</span>
+Serial.print(<span class="hljs-string">"-"</span>);
+<span class="hljs-comment">// MONTH</span>
+<span class="hljs-keyword">if</span> (month &lt; <span class="hljs-number">10</span>) {
+  Serial.print(<span class="hljs-string">"0"</span>);
+}
+Serial.print(month);
+<span class="hljs-comment">// SEPARATOR</span>
+Serial.print(<span class="hljs-string">"-"</span>);
+<span class="hljs-comment">// DAY</span>
+<span class="hljs-keyword">if</span> (day &lt; <span class="hljs-number">10</span>) {
+  Serial.print(<span class="hljs-string">"0"</span>);
+}
+Serial.print(day);
+<span class="hljs-comment">// SEPARATOR</span>
+Serial.print(<span class="hljs-string">"T"</span>);
+<span class="hljs-comment">// HOUR</span>
+<span class="hljs-keyword">if</span> (hour &lt; <span class="hljs-number">10</span>) {
+  Serial.print(<span class="hljs-string">"0"</span>);
+}
+Serial.print(hour);
+<span class="hljs-comment">// SEPARATOR</span>
+Serial.print(<span class="hljs-string">":"</span>);
+<span class="hljs-comment">// MINUTE</span>
+<span class="hljs-keyword">if</span> (minute &lt; <span class="hljs-number">10</span>) {
+  Serial.print(<span class="hljs-string">"0"</span>);
+}
+Serial.print(minute);
+<span class="hljs-comment">// SEPARATOR</span>
+Serial.print(<span class="hljs-string">":"</span>);
+<span class="hljs-comment">// SECOND</span>
+<span class="hljs-keyword">if</span> (second &lt; <span class="hljs-number">10</span>) {
+  Serial.print(<span class="hljs-string">"0"</span>);
+}
+Serial.print(second, <span class="hljs-number">3</span>); <span class="hljs-comment">// three decimals of precision -&gt; 1ms precision</span>
+<span class="hljs-comment">// TIMEZONE</span>
+Serial.print(<span class="hljs-string">"Z"</span>);
+</code></pre>
+<p><em>Merk at koden over bruker printing til Seriell, men det vil være veldig likt til hvordan det gjøres for en fil, kommandoene er de samme.</em></p>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-sm-push-9 well">
+                    <h1 id="meny">Meny</h1>
+<ul>
+<li><a href="Home.html">Hjem</a></li>
+<li><a href="airbit-Guider.html">Guider</a><ul>
+<li><a href="Guide-Bygging-og-Lodding.html">Bygging og Lodding</a></li>
+<li><a href="Guide-Oppsett-for-programmering.html">Oppsett av programmvare</a></li>
+<li><a href="Introduksjon-til-Arduino-programmering.html">Arduino programmering</a></li>
+<li><a href="airbit-Programmering.html">air:bit programmering</a></li>
+<li><a href="Feilsøking-av-programmeringsfeil.html">Feilsøking</a></li>
+</ul>
+</li>
+<li><a href="airbit-Pinout.html">Pinout</a></li>
+<li><a href="Dataformat.html">Dataformat</a></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="footer"></footer>
+</body>
+</html>
