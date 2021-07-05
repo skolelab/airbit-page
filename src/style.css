@@ -1,0 +1,42 @@
+#bootstrap-overrides .bg-faded {
+  background: #1c3249;
+  background-color: #1c3249;
+}
+
+#bootstrap-overrides .color-wikinav {
+  color: #000;
+}
+#bootstrap-overrides .navbar-brand {
+  color: #fff;
+  /* font-size: 14px; */
+  font-family: "Source Code Pro", monospace;
+}
+#bootstrap-overrides .nav-link {
+  color: #fff;
+}
+
+#bootstrap-overrides .wikinav .nav-link {
+  color: #000;
+}
+
+#container {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+#om {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+#splash {
+  text-align: center;
+}
+
+#logo {
+  height: 16rem;
+}
+/* #landing-content {
+  margin-top: 5px;
+  margin-left: 20px;
+} */
