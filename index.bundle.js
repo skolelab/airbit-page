@@ -2196,7 +2196,7 @@ eval("\n\nvar merge = __webpack_require__(/*! ./lib/util/merge */ \"./node_modul
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"# Hello World\\n\\n**Dette er en nettside**\");\n\n//# sourceURL=webpack://airbit/./src/docs/landing.md?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"# Hello World\\n\\n**Markdownfil fra source branchen**\\n\\n\\n# Quaerit limosi\\n\\n## In angues incepto\\n\\nLorem markdownum tamen, petenda aurum ergo natalis lacrimis procul modico:\\nevolvere atque evaserat mox! Induit malum.\\n\\n> Horrendus fata omnipotens annis, venerisque negata ut etiam comitante posse\\n> colla aquis fallitis cogor plus ignaro **quod** habebat. Formatum pronos, in\\n> illo positae inimica, et coniunx solito!\\n\\n## Ego et templisque tamen\");\n\n//# sourceURL=webpack://airbit/./src/docs/landing.md?");
 
 /***/ }),
 
