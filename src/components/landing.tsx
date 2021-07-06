@@ -2,15 +2,22 @@ import airbitlogo from "../img/airbit-logo-blue.png";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import landing from "../docs/landing.md";
+import landing_en from "../docs/landing_en.md";
 
-const Landing = () => {
+type LandingProps = {
+  language: boolean;
+};
+
+const Landing = ({ language }: LandingProps) => {
+  // dynamically set whether to render english or norwegian markdown document.
+  const markdown = language ? landing_en : landing;
   return (
-    <div className="jumbtron" id="om">
+    <div id="om">
       <div id="splash">
         <img id="logo" alt="air:bit logo" src={airbitlogo} />
       </div>
       <div id="landing-content">
-        <ReactMarkdown remarkPlugins={[gfm]} children={`${landing}`} />
+        <ReactMarkdown remarkPlugins={[gfm]} children={markdown} />
       </div>
     </div>
   );

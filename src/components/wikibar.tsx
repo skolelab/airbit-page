@@ -1,15 +1,26 @@
 import { Nav, Navbar } from "react-bootstrap";
+import { Dispatch, SetStateAction } from "react";
 
-const WikiBar = () => {
+interface NavigationBarProps {
+  language: boolean;
+  setLanguage: Dispatch<SetStateAction<boolean>>;
+}
+
+const WikiBar = ({ language, setLanguage }: NavigationBarProps) => {
+  var link = null;
+  if (language) {
+    link = <Nav.Link onClick={() => setLanguage(!language)}>Norsk</Nav.Link>;
+  } else {
+    link = <Nav.Link onClick={() => setLanguage(!language)}>English</Nav.Link>;
+  }
+
   return (
     <Navbar className="wikinav" variant="dark">
-      <Nav className="mr-auto">
-        <Nav.Link href="/live">English</Nav.Link>
-      </Nav>
+      <Nav className="mr-auto">{link}</Nav>
       <Nav className="ml-auto">
-        <Nav.Link href="/upload">Last opp data</Nav.Link>
-        <Nav.Link href="/history">Søk i tid</Nav.Link>
-        <Nav.Link href="/live">Live</Nav.Link>
+        <Nav.Link href="wiki">Programmering</Nav.Link>
+        <Nav.Link href="wiki/">Bygging</Nav.Link>
+        <Nav.Link href="resources">Ressurser</Nav.Link>
       </Nav>
     </Navbar>
   );

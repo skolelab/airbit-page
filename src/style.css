@@ -19,7 +19,7 @@
   color: #000;
 }
 
-#container {
+# {
   margin-top: 15px;
   margin-left: 20px;
 }
@@ -40,3 +40,13 @@
   margin-top: 5px;
   margin-left: 20px;
 } */
+#wiki-container {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+footer p {
+  width: 100%;
+  text-align: center;
+}
