@@ -26,10 +26,10 @@ const App = () => {
         {wiki && <WikiBar language={language} setLanguage={setLanguage} />}
         <Container fluid>
           <Switch>
-            <Route path="/upload"></Route>
-            <Route path="/history"></Route>
-            <Route path="/live"></Route>
-            <Route path="/wiki/:id" component={Wiki} />
+            <Route path="upload"></Route>
+            <Route path="history"></Route>
+            <Route path="live"></Route>
+            <Route path="wiki/:id" component={Wiki} />
             <Route exact path="/">
               <Landing language={language} />
             </Route>
