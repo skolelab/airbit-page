@@ -13,13 +13,12 @@ const WikiBar = ({ language, setLanguage }: NavigationBarProps) => {
   } else {
     link = <Nav.Link onClick={() => setLanguage(!language)}>English</Nav.Link>;
   }
-
   return (
     <Navbar className="wikinav" variant="dark">
       <Nav className="mr-auto">{link}</Nav>
       <Nav className="ml-auto">
-        <Nav.Link href="wiki">Programmering</Nav.Link>
-        <Nav.Link href="wiki/">Bygging</Nav.Link>
+        <Nav.Link href="wiki/Home">Programmering</Nav.Link>
+        <Nav.Link href="wiki">Bygging</Nav.Link>
         <Nav.Link href="resources">Ressurser</Nav.Link>
       </Nav>
     </Navbar>
