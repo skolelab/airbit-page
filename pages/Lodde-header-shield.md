@@ -86,10 +86,10 @@ Du skal nå har et helt funksjonellt shield klart for bruk. Nå er vi kommet god
 [casing]: Sette-sammen-treboksen
 [sensors]: Lodde-sensorene
 
-[header-pins-cut-arduino]: pages/20171019_113609.jpg
-[header-pins-arduino]: pages/20171019_113707.jpg
-[header-pins-shield]: pages/20171019_113916.jpg
-[soldering-begin]: pages/20171019_114336.jpg
-[soldering-complete]: pages/20171019_114915.jpg
-[resistors-placement]: pages/20171019_115039.jpg
-[led-placement]: pages/20171019_115344.jpg
+[header-pins-cut-arduino]: /20171019_113609.jpg
+[header-pins-arduino]: /20171019_113707.jpg
+[header-pins-shield]: /20171019_113916.jpg
+[soldering-begin]: /20171019_114336.jpg
+[soldering-complete]: /20171019_114915.jpg
+[resistors-placement]: /20171019_115039.jpg
+[led-placement]: /20171019_115344.jpg

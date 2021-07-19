@@ -180,4 +180,4 @@ Merk også at indre scopes har kjennskap til alle overordnete scopes. Dvs. `erro
 [guides]: airbit-Guider
 [config-ide]: Konfigurasjon-av-Arduino-IDE
 
-[missing-semicolon]: pages/Arduino-IDE-Missing-Semicolon.png
+[missing-semicolon]: /Arduino-IDE-Missing-Semicolon.png

@@ -18,4 +18,4 @@ Gratulerer! Du har bydg sammen en air:bit. Den er nå klar for å bli programmer
 [skrew]: Skru-fast-komponenter
 [guides]: airbit-Guider
 
-[complete]: pages/20171019_134609.jpg
+[complete]: 20171019_134609.jpg

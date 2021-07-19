@@ -289,4 +289,4 @@ Så kan du ta koden du skrev her i `setup` for å åpne filen, og bruke den for 
 
 [counting-example]: Variabler-og-telling-i-Arduino
 [pinout]: airbit-Pinout
-[notepad]: pages/testfile-notepad.png
+[notepad]: /testfile-notepad.png

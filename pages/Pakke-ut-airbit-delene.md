@@ -147,16 +147,16 @@ Du vil finne er mere detaljert beskrivelse samt linker til offisiell dokumentasj
 [components]: Komponenter
 
 [arduino-uno-picture]: https://www.arduino.cc/en/uploads/Guide/A000066_iso_both.jpg
-[shield-picture]: pages/airbit-shield.png
-[airbit-gps-img]: pages/airbit-gps-img.jpg
+[shield-picture]: /airbit-shield.png
+[airbit-gps-img]: /airbit-gps-img.jpg
 [pm-sensor]: http://aqicn.org/aqicn/view/images/sensors/sds011-large.png
-[airbit-dht-img]: pages/airbit-dht-img.jpg
+[airbit-dht-img]: /airbit-dht-img.jpg
 [powerbank-img]: iiglo-pocket-powerbank-img.jpeg
-[resistor-img]: pages/220Ohm_Res.png
-[male-pin-header-img]: pages/6_Pin_Header.jpg
-[female-pin-header-img]: pages/pin-header-female-10pin.jpg
+[resistor-img]: /220Ohm_Res.png
+[male-pin-header-img]: /6_Pin_Header.jpg
+[female-pin-header-img]: /pin-header-female-10pin.jpg
 
-[airbit-logo]: pages/airbit-logo-full.png
+[airbit-logo]: /airbit-logo-full.png
 [uit-logo]: https://uit.no/ressurs/uit/grafisk/uit2013/logo/illLogo.jpeg
 [skolelab-logo]: https://uit.no/Content/393666/skolelaboratoriet.jpg
 [vitensenteret-logo]: https://nordnorsk.vitensenter.no/sites/all/themes/NNVtheme/logo.png
