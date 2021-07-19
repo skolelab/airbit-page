@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
     entry: "./src/index.tsx",
 
@@ -14,13 +14,14 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"],
     },
     devServer: { contentBase: path.join(__dirname, "src") , 
+    
     historyApiFallback: true},
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ["babel-loader"],
+                use: ["babel-loader"],  
             },
             {
                 test: /\.(ts|tsx)$/,
@@ -36,7 +37,7 @@ module.exports = {
               use: "raw-loader",
             },
             {
-                test: /\.(png|jpe?g|gif|jp2|webp)$/,
+                test: /\.(jpg|png|jpe?g|gif|jp2|webp)$/,
                 loader: 'file-loader',
                 options: {
                 name: '[name].[ext]'
@@ -48,5 +49,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src", "index.html"),
         }),
-    ],
+        new CopyWebpackPlugin({
+            patterns: [
+            {from:"pages",to:"/"},
+        ],
+    }),
+],
 };

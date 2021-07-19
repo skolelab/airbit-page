@@ -24,4 +24,4 @@ Etter Installasjonsfilen er lastet ned, må vi kjøre Installasjonsprogrammet. I
 
 [Arduino-Software-Page]: https://www.arduino.cc/en/Main/Software
 
-[Arduino-Driver-Install-Windows-Security]: Arduino-Driver-Install-Windows-Security.PNG
+[Arduino-Driver-Install-Windows-Security]: pages/Arduino-Driver-Install-Windows-Security.PNG

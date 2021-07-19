@@ -12,7 +12,8 @@ const Wiki = (props: any) => {
   const filehandle = props.match.params.id;
   const [file, setFile] = useState("");
   const component = {
-    a: ({ ...props }) => <Link to={props.href}>{props.children}</Link>
+    a: ({ ...props }) => <Link to={props.href}>{props.children}</Link>,
+    img: ({ ...props }) => <img src={props.src}></img>
   };
 
   if (document.getElementById("wikibar")) {
@@ -29,7 +30,11 @@ const Wiki = (props: any) => {
     <Container id="wiki-container">
       <Row>
         <Col sm={10} id="content">
-          <ReactMarkdown remarkPlugins={[gfm]} children={file} />
+          <ReactMarkdown
+            components={component}
+            remarkPlugins={[gfm]}
+            children={file}
+          />
         </Col>
         <Col sm={2}>
           <ReactMarkdown

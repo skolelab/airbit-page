@@ -2,15 +2,17 @@ Den mest vanlige opplevelsen mens man skriver kode er desverre at ting ikke funk
 
 ## Innhold
 
-* [Feilmarkeringer i Arduino IDE](#feilmarkeringer-i-arduino-ide)
-* [En feil om gangen](#en-feil-om-gangen)
-* [Vanlige feil](#vanlige-feil)
-  * [For hyppig klikk på Upload-knappen](#for-hyppig-klikk-på-upload-knappen)
-  * [Bruk av annen `COM`-port](#bruk-av-annen-com-port)
-  * [Manglende Semikolon](#manglende-semikolon)
-  * [Manglende lukkende parentes](#manglende-lukkende-parentes)
-  * [Feilstavelser i navn](#feilstavelser-i-navn)
-  * [Bruk av variabler utenfor scope](#bruk-av-variabler-utenfor-scope)
+- [Innhold](#innhold)
+- [Feilmarkeringer i Arduino IDE](#feilmarkeringer-i-arduino-ide)
+- [En feil om gangen](#en-feil-om-gangen)
+- [Vanlige feil](#vanlige-feil)
+  - [For hyppig klikk på Upload-knappen](#for-hyppig-klikk-på-upload-knappen)
+  - [Bruk av annen `COM`-Port](#bruk-av-annen-com-port)
+  - [Manglende Semikolon](#manglende-semikolon)
+  - [Manglende lukkende parentes](#manglende-lukkende-parentes)
+  - [Feilstavelser i navn](#feilstavelser-i-navn)
+  - [Bruk av variabler utenfor scope](#bruk-av-variabler-utenfor-scope)
+- [Gå tilbake](#gå-tilbake)
 
 ## Feilmarkeringer i Arduino IDE
 
@@ -178,4 +180,4 @@ Merk også at indre scopes har kjennskap til alle overordnete scopes. Dvs. `erro
 [guides]: airbit-Guider
 [config-ide]: Konfigurasjon-av-Arduino-IDE
 
-[missing-semicolon]: Arduino-IDE-Missing-Semicolon.png
+[missing-semicolon]: pages/Arduino-IDE-Missing-Semicolon.png

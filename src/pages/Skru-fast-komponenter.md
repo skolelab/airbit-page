@@ -79,9 +79,9 @@ Lim til slutt fast to brede strimler av dobbeltsidig teip på bunnplaten og side
 [sensors]: Lodde-sensorene
 [lid]: Sette-på-lokket
 
-[skrews-placement]: 20171019_111902.jpg
-[tape-on-gps]: 20171019_130944.jpg
-[gps-placement]: 20171019_132825.jpg
-[sd-placement]: 20171019_132839.jpg
-[pm-cable]: 20171019_120201_cable.jpg
-[all-placement]: 20171019_134129.jpg
+[skrews-placement]: pages/20171019_111902.jpg
+[tape-on-gps]: pages/20171019_130944.jpg
+[gps-placement]: pages/20171019_132825.jpg
+[sd-placement]: pages/20171019_132839.jpg
+[pm-cable]: pages/20171019_120201_cable.jpg
+[all-placement]: pages/20171019_134129.jpg

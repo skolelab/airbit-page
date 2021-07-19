@@ -65,4 +65,4 @@ Om du har gjort alt rett vil du se teksten `"Hello World!` bli printet ut om og 
 [sketch]: Tom-Arduino-Sketch
 [variables]: Variabler-og-telling-i-Arduino
 
-[serial-monitor-button]: Arduino-IDE-SerialMonitor-Button.png
+[serial-monitor-button]: pages/Arduino-IDE-SerialMonitor-Button.png

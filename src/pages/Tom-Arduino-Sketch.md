@@ -51,5 +51,5 @@ Siden vi ikke har skrevet noen instruksjoner i hverken `setup` og `loop`, gjør 
 &uarr; [Gå til **Introduksjon til Arduino**][intro-prog-home]  
 &rarr; [Gå til neste steg: **Hello World**][hello-world]
 
-[intro-prog-home]: Introduksjon-til-Arduino-programmering
-[hello-world]: Arduino-varianten-av-Hello-World
+[intro-prog-home]: pages/Introduksjon-til-Arduino-programmering
+[hello-world]: pages/Arduino-varianten-av-Hello-World

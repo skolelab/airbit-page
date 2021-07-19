@@ -16,7 +16,7 @@ Klikk **[her][empty-sketch]** for å begynne med første steg.
 Klill [her][general-info] for å få mere generell informasjon om programmering, hva et programm er, og hvilke typer programmvare som finnes.  
 **[Generell Informasjon om Programmering][general-info]**
 
-[general-info]: Generell-informasjon-om-programmering
-[empty-sketch]: Tom-Arduino-Sketch
-[hello-world]: Arduino-varianten-av-Hello-World
-[variables]: Variabler-og-telling-i-Arduino
+[general-info]: ./Generell-informasjon-om-programmering
+[empty-sketch]: ./Tom-Arduino-Sketch
+[hello-world]: ./Arduino-varianten-av-Hello-World
+[variables]: ./Variabler-og-telling-i-Arduino

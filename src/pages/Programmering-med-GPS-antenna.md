@@ -355,7 +355,7 @@ void loop() {
 &rarr; [Gå til neste steg: **SD-kortet og filer**][sd]  
 
 [tiny-gpp-dl-link]: http://arduiniana.org/libraries/tinygpsplus/
-[tiny-ggp-dl-img]: TinyGPSPlusPlus-library-download.png
+[tiny-ggp-dl-img]: pages/TinyGPSPlusPlus-library-download.png
 
 [home]: airbit-Programmering
 [pm]: Programmering-med-Støvsensoren

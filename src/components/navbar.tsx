@@ -4,7 +4,9 @@ const NavigationBar = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="/">air:bit</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          air:bit
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="mr-auto">

@@ -33,7 +33,7 @@ Guidene for de forskjellige sensorene vil fortelle deg hvordan disse verdiene fo
 &uarr; [Gå til **innholdsfortegnelsen**][home]  
 &rarr; [Gå til neste steg: **LED-Blinking**][led]  
 
-[airbit-pinout-skjema]: Vaerlogger_v2.1_skjema.png
+[airbit-pinout-skjema]: pages/Vaerlogger_v2.1_skjema.png
 
 [home]: airbit-Programmering
 [led]: airbit-LED-Blinking
