@@ -64,13 +64,13 @@ Plugge inn GPS modulen
 [shield]: Lodde-header-shield
 [skrew]: Skru-fast-komponenter
 
-[header-pins-pm]: /20171019_120102.jpg
-[header-pins-dht]: /20171019_121148.jpg
-[header-pins-gps]: /20171019_122615.jpg
-[header-pins-sd]: /20171019_125617.jpg
-[header-plugs-placement]: /20171019_130534.jpg
-[header-plugs-gps]: /20171019_122732.jpg
-[header-plugs-sd]: /20171019_130550.jpg
-[plugging-pm]: /20171019_120201.jpg
-[plugging-dht]: /20171019_121343.jpg
-[plugging-gps]: /20171019_125500.jpg
+[header-pins-pm]:20171019_120102.jpg
+[header-pins-dht]: 20171019_121148.jpg
+[header-pins-gps]: 20171019_122615.jpg
+[header-pins-sd]: 20171019_125617.jpg
+[header-plugs-placement]: 20171019_130534.jpg
+[header-plugs-gps]: 20171019_122732.jpg
+[header-plugs-sd]: 20171019_130550.jpg
+[plugging-pm]: 20171019_120201.jpg
+[plugging-dht]: 20171019_121343.jpg
+[plugging-gps]: 20171019_125500.jpg

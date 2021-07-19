@@ -47,4 +47,4 @@ Du kan se at hullet for *USB* matcher plasseringen til den lille firkanten inni 
 [unboxing]: Pakke-ut-airbit-delene
 [shield]: Lodde-header-shield
 
-[casing-img]: /airbit-casing-img.jpg
+[casing-img]: airbit-casing-img.jpg
