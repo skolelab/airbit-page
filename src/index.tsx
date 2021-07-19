@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavigationBar from "./components/navbar";
 import WikiBar from "./components/wikibar";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -14,8 +14,8 @@ const App = () => {
   // choose English or Norwegian language
   const [language, setLanguage] = useState(false);
   var wiki = true;
-
-  if (window.location.pathname.includes("wiki")) {
+  console.log(window.location.href);
+  if (window.location.href.includes("wiki")) {
     wiki = false;
   }
 
@@ -26,10 +26,10 @@ const App = () => {
         {wiki && <WikiBar language={language} setLanguage={setLanguage} />}
         <Container fluid>
           <Switch>
-            <Route path="upload"></Route>
-            <Route path="history"></Route>
-            <Route path="live"></Route>
-            <Route path="wiki/:id" component={Wiki} />
+            <Route path="/upload"></Route>
+            <Route path="/history"></Route>
+            <Route path="/live"></Route>
+            <Route path="/wiki/:id" component={Wiki} />
             <Route exact path="/">
               <Landing language={language} />
             </Route>

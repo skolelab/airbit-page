@@ -1,5 +1,6 @@
 import { Nav, Navbar } from "react-bootstrap";
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 
 interface NavigationBarProps {
   language: boolean;
@@ -14,12 +15,18 @@ const WikiBar = ({ language, setLanguage }: NavigationBarProps) => {
     link = <Nav.Link onClick={() => setLanguage(!language)}>English</Nav.Link>;
   }
   return (
-    <Navbar className="wikinav" variant="dark">
+    <Navbar id="wikibar" className="wikinav" variant="dark">
       <Nav className="mr-auto">{link}</Nav>
       <Nav className="ml-auto">
-        <Nav.Link href="wiki/Home">Programmering</Nav.Link>
-        <Nav.Link href="wiki">Bygging</Nav.Link>
-        <Nav.Link href="resources">Ressurser</Nav.Link>
+        <Link className="nav-link" to="/wiki/Home">
+          Programmering
+        </Link>
+        <Link className="nav-link" to="/wiki">
+          Bygging
+        </Link>
+        <Link className="nav-link" to="resources">
+          Ressurser
+        </Link>
       </Nav>
     </Navbar>
   );
