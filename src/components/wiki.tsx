@@ -4,23 +4,28 @@ import sidebar from "../pages/_Sidebar.md";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
+
+const parseImage = (src: string) => {
+  if (src.includes("http")) {
+    return src;
+  } else {
+    return "github_pages/" + src;
+  }
+};
 
 const Wiki = (props: any) => {
-  const history = useHistory();
-
   const filehandle = props.match.params.id;
   const [file, setFile] = useState("");
   const component = {
     a: ({ ...props }) => <Link to={props.href}>{props.children}</Link>,
-    img: ({ ...props }) => <img src={props.src}></img>
+    img: ({ ...props }) => (
+      <img style={{ maxWidth: "100%" }} src={parseImage(props.src)}></img>
+    )
   };
-
-  if (document.getElementById("wikibar")) {
-    // refresh page if we find the second navigation bar
-    history.go(0);
-  }
   useEffect(() => {
+    if (props.wiki) {
+      props.setWiki(false);
+    }
     // history.go(0);
     import(`../pages/${filehandle}.md`).then((res) => {
       setFile(res.default);

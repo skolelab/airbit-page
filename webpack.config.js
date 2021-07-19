@@ -51,7 +51,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-            {from:"pages",to:"/"},
+            {from:"src/pages",to:"."},
         ],
     }),
 ],

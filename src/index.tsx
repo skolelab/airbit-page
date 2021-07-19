@@ -13,11 +13,7 @@ import "./style.css";
 const App = () => {
   // choose English or Norwegian language
   const [language, setLanguage] = useState(false);
-  var wiki = true;
-  console.log(window.location.href);
-  if (window.location.href.includes("wiki")) {
-    wiki = false;
-  }
+  const [wiki, setWiki] = useState(true);
 
   return (
     <>
@@ -29,9 +25,14 @@ const App = () => {
             <Route path="/upload"></Route>
             <Route path="/history"></Route>
             <Route path="/live"></Route>
-            <Route path="/wiki/:id" component={Wiki} />
+            <Route
+              path="/wiki/:id"
+              render={(props) => (
+                <Wiki {...props} wiki={wiki} setWiki={setWiki} />
+              )}
+            />
             <Route exact path="/">
-              <Landing language={language} />
+              <Landing language={language} wiki={wiki} setWiki={setWiki} />
             </Route>
           </Switch>
         </Container>
