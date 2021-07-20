@@ -4,7 +4,14 @@ import sidebar from "../pages/_Sidebar.md";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+const parseLink = (props: any) => {
+  // conditional render of the markdown components
+  return props.href.includes("http") ? (
+    <a href={props.href}>{props.children}</a>
+  ) : (
+    <Link to={props.href}>{props.children}</Link>
+  );
+};
 const parseImage = (src: string) => {
   if (src.includes("http")) {
     return src;
@@ -17,7 +24,9 @@ const Wiki = (props: any) => {
   const filehandle = props.match.params.id;
   const [file, setFile] = useState("");
   const component = {
-    a: ({ ...props }) => <Link to={props.href}>{props.children}</Link>,
+    a: ({ ...props }) => {
+      return parseLink(props);
+    },
     img: ({ ...props }) => (
       <img style={{ maxWidth: "100%" }} src={parseImage(props.src)}></img>
     )
