@@ -1,1 +1,0 @@
-Her kommer en oversikt over alle komponentene.
