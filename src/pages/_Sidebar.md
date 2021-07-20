@@ -7,9 +7,9 @@
   - [Arduino programmering][intro-programming]
   - [air:bit programmering][airbit-programming]
   - [Feilsøking][error-debugging]
+  - [Ny wikiside][new-wikipage]
 - [Pinout][pinout]
 - [Dataformat][data-format]
-
 [hjem]: /wiki/Home
 [guides]: /wiki/airbit-Guider
 [building]: /wiki/Guide-Bygging-og-Lodding
@@ -21,3 +21,4 @@
 [data-format]: /wiki/Dataformat
 [ex-sd]: /wiki/airbit-memory-card-test
 [ex-allsensors]: /wiki/airbit-all-sensors
+[new-wikipage]: /wiki/new-page
