@@ -1,4 +1,4 @@
-air:bit Programmeringsguiden består av flere småguider, én for hver sensor. Guidene for hver sensor vil gi deg forklaringer og tips for hvordan du skal programmere Arduinoen til å bruke de ulike sensorene.
+air:bit Programmeringsguiden består av flere småguider, én for hver sensor. Guidene for hver sensor vil gi deg forklaringer og tips for hvordan du skal programmere kontrolleren til å bruke de ulike sensorene.
 
 Selv om guidene vil innholde en del kodeekssempler, vi du likevel være nødt til å selv sy sammen alle de ulike smådelene til et helhetlig air:bit program.
 
@@ -18,15 +18,11 @@ Aller først skal vi ta en titt på pinout skjemaet til airbit og forklare hvord
 
 -----
 
-## Gå tilbake
-
-&uarr; [Gå til: **Guider**][guides]
-
 [guides]: airbit-Guider
-
 [pinout]: airbit-Pinout
 [led]: airbit-LED-Blinking
 [dht]: Programmering-med-Temperatursensoren
 [pm]: Programmering-med-Støvsensoren
 [gps]: Programmering-med-GPS-antenna
-[sd]: Programmering-av-filer-på-SD-kortet
+[sd]: Programmering-av-filer-på-SD-ortetk
+[sd]: Programmering-av-nettverk
