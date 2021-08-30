@@ -34,7 +34,7 @@ Når man skriver kode vil man desverre alltids snuble over feil og lure på hvor
 
 **[Guide: Feilsøking under programmering][error-debugging]**
 
-[build]: Guide-Bygging-og-Lodding
+[build]: Guide-Bygging-Lodding
 [prog-setup]: Guide-Oppsett-for-programmering
 [airbit-programming]: airbit-programmering
 [micropython-programming]: micropython-programmering

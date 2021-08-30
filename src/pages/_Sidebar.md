@@ -3,7 +3,7 @@
 - [Hjem][hjem]
 - [Guider][guides]
   - [Bygging og Lodding][building]
-  - [Oppsett av programmvare][setup]
+  - [Oppsett av programvare][setup]
   - [MicroPython programmering][intro-programming]
   - [air:bit programmering][airbit-programming]
   - [Feilsøking][error-debugging]
@@ -13,7 +13,8 @@
 [guides]: /wiki/airbit-guider
 [pinout]: /wiki/airbit-Pinout
 [data-format]: /wiki/Dataformat
+[setup]: /wiki/Oppsett-for-Programmering
 [building]: /wiki/Guide-bygging-lodding
-[air:bit programmering]: /wiki/airbit-programmering
-[intro-programmering]: /wiki/
-[data-format]: /wiki/Dataformat
+[airbit-programming]: /wiki/airbit-programmering
+[intro-programming]: /wiki/micropython-programmering
+[error-debugging]: /wiki/error-debugging
