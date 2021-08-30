@@ -6,4 +6,4 @@ Elevene må selv sette sammen koden til et sammenhengende program for målebokse
 
 [skolelab]: https://uit.no/skolelab
 
-[guides]: airbit-Guider
+[guides]: airbit-guider
