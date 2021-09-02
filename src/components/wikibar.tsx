@@ -21,7 +21,7 @@ const WikiBar = ({ language, setLanguage }: NavigationBarProps) => {
         <Link className="nav-link" to="/wiki/Home">
           Programmering
         </Link>
-        <Link className="nav-link" to="/wiki">
+        <Link className="nav-link" to="/wiki/Guide-bygging-lodding">
           Bygging
         </Link>
         <Link className="nav-link" to="resources">
