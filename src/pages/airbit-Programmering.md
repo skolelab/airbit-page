@@ -24,5 +24,5 @@ Aller først skal vi ta en titt på pinout skjemaet til airbit og forklare hvord
 [dht]: Programmering-med-Temperatursensoren
 [pm]: Programmering-med-Støvsensoren
 [gps]: Programmering-med-GPS-antenna
-[sd]: Programmering-av-filer-på-SD-ortetk
+[sd]: Programmering-av-filer-på-SD-kort
 [sd]: Programmering-av-nettverk
