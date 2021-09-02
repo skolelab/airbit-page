@@ -10,6 +10,7 @@ Selv om guidene vil innholde en del kodeekssempler, vi du likevel være nødt ti
 1. [Støvsensoren][pm]
 1. [GPS-Antenna][gps]
 1. [SD-kortet og filer][sd]
+1. [Nettverk][net]
 
 ## Steg 1
 
@@ -25,4 +26,4 @@ Aller først skal vi ta en titt på pinout skjemaet til airbit og forklare hvord
 [pm]: Programmering-med-Støvsensoren
 [gps]: Programmering-med-GPS-antenna
 [sd]: Programmering-av-filer-på-SD-kort
-[sd]: Programmering-av-nettverk
+[net]: Programmering-av-nettverk

@@ -1,1 +1,1 @@
-(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[795],{8795:(e,s,t)=>{"use strict";t.r(s),t.d(s,{default:()=>a});const a=""}}]);
+(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[795],{8795:(n,t,e)=>{"use strict";e.r(t),e.d(t,{default:()=>i});const i="DHT11\n\n```python\n# Initialise DTH sensor on Pin 8\nth = DHT('P8', 0)\n\nresult = th.read()\nif result.is_valid():\n\n  # print temperature and humidity\n  print(result.temperature, result.humidity)\n  \n```\n\n"}}]);

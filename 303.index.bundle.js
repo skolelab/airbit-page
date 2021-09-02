@@ -1,1 +1,1 @@
-(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[303],{8303:(e,s,t)=>{"use strict";t.r(s),t.d(s,{default:()=>a});const a=""}}]);
+(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[303],{8303:(n,e,s)=>{"use strict";s.r(e),s.d(e,{default:()=>t});const t="\n\n\n## Kommer\n\n\n\n\n\n"}}]);
