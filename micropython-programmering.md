@@ -15,5 +15,5 @@ Klikk [her][general-info] for å få mere generell informasjon om programmering,
 **[Generell Informasjon om Programmering][general-info]**
 
 [general-info]: ./Generell-informasjon-om-programmering
-[hello-world]: ./Arduino-varianten-av-Hello-Wold
-[variables]: ./Variabler-og-telling-i-Arduinor
+[hello-world]: ./Python-varianten-av-Hello-World
+[variables]: ./Variabler-og-telling-i-Python
