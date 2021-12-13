@@ -13,7 +13,7 @@
 [guides]: /wiki/airbit-guider
 [pinout]: /wiki/airbit-Pinout
 [data-format]: /wiki/Dataformat
-[setup]: /wiki/Oppsett-for-Programmering
+[setup]: /wiki/Oppsett-for-programmering
 [building]: /wiki/Guide-bygging-lodding
 [airbit-programming]: /wiki/airbit-programmering
 [intro-programming]: /wiki/micropython-programmering

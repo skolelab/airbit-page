@@ -9,17 +9,7 @@ const NavigationBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar" />
         <Navbar.Collapse id="navbar-nav">
-          <Nav className="mr-auto">
-            <Link className="nav-link" to="upload">
-              Last opp data
-            </Link>
-            <Link className="nav-link" to="history">
-              Søk i tid
-            </Link>
-            <Link className="nav-link" to="/live">
-              Live
-            </Link>
-          </Nav>
+		<Nav></Nav>
         </Navbar.Collapse>
       </Navbar>
     </>
