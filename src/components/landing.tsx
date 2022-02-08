@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import { Dispatch, SetStateAction } from "react";
 import { useEffect, useState } from "react";
+
 type LandingProps = {
   language: boolean;
   wiki: boolean;
@@ -16,8 +17,7 @@ const Landing = ({ language, wiki, setWiki }: LandingProps) => {
   useEffect(() => {
     if (!wiki) {
       setWiki(true);
-    }
-    const markdown = language ? "landing_en" : "landing";
+    } const markdown = language ? "landing_en" : "landing";
     import(`../docs/${markdown}.md`).then((res) => {
       setFile(res.default);
     });

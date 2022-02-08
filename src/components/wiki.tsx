@@ -11,7 +11,9 @@ const parseLink = (props: any) => {
   ) : (
     <Link to={props.href}>{props.children}</Link>
   );
+
 };
+
 const parseImage = (src: string) => {
   if (src.includes("http")) {
     return src;
