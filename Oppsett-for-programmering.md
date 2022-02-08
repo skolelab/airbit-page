@@ -23,4 +23,4 @@ Sist, må vi installere Pymakr Plugin for VSCode.
 3. Find utvidelsen "Pymakr" ved å skrive i søkefeltet
 4. Trykk på "Install"
 
-![Pymakr installasjon](pymakr.png)
+![Pymakr installasjon](https://github.com/erlingdevdev/github_pages/blob/gh-pages/pymakr.png)
