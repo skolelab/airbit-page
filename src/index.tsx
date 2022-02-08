@@ -5,7 +5,7 @@ import NavigationBar from "./components/navbar";
 import WikiBar from "./components/wikibar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from "./components/landing";
-import Resources from "./components/resources";
+// import Resources from "./components/resources";
 import Wiki from "./components/wiki";
 import { Container } from "react-bootstrap";
 import "./style.css";
@@ -22,10 +22,6 @@ const App = () => {
 				{wiki && <WikiBar language={language} setLanguage={setLanguage} />}
 				<Container fluid>
 					<Switch>
-            //{" "}
-						<Route path="/resources">
-							<Resources />
-						</Route>
 						<Route
 							path="/wiki/:id"
 							render={(props) => (
