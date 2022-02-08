@@ -1,1 +1,1 @@
-(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[303],{8303:(n,e,s)=>{"use strict";s.r(e),s.d(e,{default:()=>t});const t="\n\n\n## Kommer\n\n\n\n\n\n"}}]);
+(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[303],{8303:(e,n,d)=>{"use strict";d.r(n),d.d(n,{default:()=>s});const s='\n1. [Lodde shield][shield]\n1. [Lodde sensorer][sensors]\n    * Lodde GPS modulen\n    * Lodde "*Sukkerbiten*"\n\n\n[shield]: Lodde-header-shield\n[sensors]: Lodde-sensorene\n\n\n\n\n\n'}}]);
