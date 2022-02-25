@@ -40,7 +40,6 @@ const Wiki = (props: any) => {
       props.setWiki(false);
     }
     // history.go(0);
-    console.log(props.version);
     if (cookies.version == 2) {
       import(`../pages/${filehandle}.md`).then((res) => {
         setFile(res.default);

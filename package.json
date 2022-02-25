@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "airbit website",
   "main": "index.tsx",
-  "homepage": "https://skolelab.github.io/airbit-page",
+  "homepage": "https://airbit.azurewebsites.net",
   "scripts": {
     "webpack": "webpack",
     "start": "webpack serve --open --config webpack.dev.js",
