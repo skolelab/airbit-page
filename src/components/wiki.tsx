@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
-import sidebar from "../pages/_Sidebar.md";
-import sidebarOld from "../pages_old/_Sidebar.md";
+import sidebar from "../pages/Sidebar.md";
+import sidebarOld from "../pages_old/Sidebar.md";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
