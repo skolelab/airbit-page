@@ -20,7 +20,7 @@ void loop() {
 
 Igjen skal vi bruke et bibliotek for å kommunisere med GPS-antennen. Denne gangen skal vi igjen bruke et bibliotek du ikke finner i `Library Manager`. Klikk på følgende link for å laste ned: **[TinyGPS++ Biblioteket][tiny-gpp-dl-link]**
 
-[![Nedlastning av TinyGPS++ biblioteket](TinyGPSPlusPlus-library-download.png)][tiny-gpp-dl-link]
+[![Nedlastning av TinyGPS++ biblioteket](img/TinyGPSPlusPlus-library-download.png)][tiny-gpp-dl-link]
 
 Klikk på den store grønne pilen der det står Download. Husk at du ikke vil åpne file du laster ned, men at du lagre den!
 
@@ -355,7 +355,7 @@ void loop() {
 &rarr; [Gå til neste steg: **SD-kortet og filer**][sd]  
 
 [tiny-gpp-dl-link]: http://arduiniana.org/libraries/tinygpsplus/
-[tiny-ggp-dl-img]: TinyGPSPlusPlus-library-download.png
+[tiny-ggp-dl-img]: img/TinyGPSPlusPlus-library-download.png
 
 [home]: airbit-Programmering
 [pm]: Programmering-med-Støvsensoren

@@ -46,7 +46,7 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{ from: "src/pages", to: "." },
-				{ from: "src/img", to: "." }
+				{ from: "src/img", to: "./airbit-page/img" }
 
 			],
 		}),
