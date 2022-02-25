@@ -1,8 +1,6 @@
 
 Her er alle guidene på hvordan sette sammen, lodde og programmere air:bit måleren.
 
-# Merk at guidene er ufullstendig og blir oppdatert ila. Januar 2021
-
 Guidene er delt opp i flere mindre steg og rettet mot nybegynnere både når det gjelder lodding og programmering av micropython kontrollere. Om du synes ting går litt for sakte for deg i ett steg kan du bare hoppe videre til neste steg.
 
 ## Bygge air:bit

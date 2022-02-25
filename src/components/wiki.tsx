@@ -11,7 +11,6 @@ const parseLink = (props: any) => {
   ) : (
     <Link to={props.href}>{props.children}</Link>
   );
-
 };
 
 const parseImage = (src: string) => {
@@ -38,9 +37,16 @@ const Wiki = (props: any) => {
       props.setWiki(false);
     }
     // history.go(0);
-    import(`../pages/${filehandle}.md`).then((res) => {
-      setFile(res.default);
-    });
+    console.log(props.version);
+    if (props.version == 2) {
+      import(`../pages/${filehandle}.md`).then((res) => {
+        setFile(res.default);
+      });
+    } else {
+      import(`../pages_old/${filehandle}.md`).then((res) => {
+        setFile(res.default);
+      });
+    }
   });
   return (
     <Container id="wiki-container">

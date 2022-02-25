@@ -6,18 +6,22 @@ import { useEffect, useState } from "react";
 
 type LandingProps = {
   language: boolean;
+  version: number;
   wiki: boolean;
   setWiki: Dispatch<SetStateAction<boolean>>;
 };
 
-const Landing = ({ language, wiki, setWiki }: LandingProps) => {
+const Landing = ({ version, wiki, setWiki }: LandingProps) => {
   // dynamically set whether to render english or norwegian markdown document.
   const [file, setFile] = useState("");
 
   useEffect(() => {
     if (!wiki) {
       setWiki(true);
-    } const markdown = language ? "landing_en" : "landing";
+    }
+
+    // const markdown = language ? "landing_en" : "landing";
+    const markdown = version == 1 ? "old_landing" : "landing";
     import(`../docs/${markdown}.md`).then((res) => {
       setFile(res.default);
     });
