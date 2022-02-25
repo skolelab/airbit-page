@@ -1,1 +1,0 @@
-(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[750],{4750:(n,e,s)=>{"use strict";s.r(e),s.d(e,{default:()=>i});const i="# SDS011 nova PM sensor\n\n## Støvsensoren\n\n![Hovedbilde][hovedbilde]\n\nInfo om denne sensoren.\n\n[hovedbilde]: http://aqicn.org/aqicn/view/images/sensors/sds011-large.png\n"}}]);

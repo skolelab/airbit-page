@@ -1,1 +1,0 @@
-(self.webpackChunkairbit=self.webpackChunkairbit||[]).push([[492],{9492:(e,t,d)=>{"use strict";d.r(t),d.d(t,{default:()=>n});const n="![Hovedbilde][hovedbilde]\n\nFukt og temp sensor.\n\n[hovedbilde]: https://cdn-shop.adafruit.com/1200x900/385-00.jpg\n"}}]);
