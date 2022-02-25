@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = merge(common, {
   output: {
-    publicPath: "/airbit-page/"
+    publicPath: "/"
   },
 
   mode: "production"

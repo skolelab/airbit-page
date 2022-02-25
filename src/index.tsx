@@ -23,10 +23,7 @@ const App = () => {
     // setVersion(val);
     setCookies("version", val, { path: "/" });
   };
-  // if (!version) {
-  //   onChange(cookies?.version);
-  // }
-  console.log(cookies.version);
+
 
   return (
     <>
