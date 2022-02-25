@@ -1,9 +1,11 @@
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import sidebar from "../pages/_Sidebar.md";
+import sidebarOld from "../pages_old/_Sidebar.md";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 const parseLink = (props: any) => {
   // conditional render of the markdown components
   return props.href.includes("http") ? (
@@ -32,13 +34,14 @@ const Wiki = (props: any) => {
       <img style={{ maxWidth: "100%" }} src={parseImage(props.src)}></img>
     )
   };
+  const [cookies, setCookies] = useCookies(["version"]);
   useEffect(() => {
     if (props.wiki) {
       props.setWiki(false);
     }
     // history.go(0);
     console.log(props.version);
-    if (props.version == 2) {
+    if (cookies.version == 2) {
       import(`../pages/${filehandle}.md`).then((res) => {
         setFile(res.default);
       });
@@ -62,7 +65,7 @@ const Wiki = (props: any) => {
           <ReactMarkdown
             components={component}
             remarkPlugins={[gfm]}
-            children={sidebar}
+            children={cookies.version == 2 ? sidebar : sidebarOld}
           />
         </Col>
       </Row>
