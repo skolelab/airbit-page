@@ -1,7 +1,14 @@
 import { Nav, Navbar } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { useCookies } from "react-cookie";
 const NavigationBar = () => {
+  const [_, setCookies] = useCookies(["version"]);
+
+  const onChange = (val: number) => {
+    // setVersion(val);
+    setCookies("version", val, { path: "/" });
+  };
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -18,6 +25,9 @@ const NavigationBar = () => {
           <Link className="nav-link" to="/resources">
             Ressurser
           </Link>
+          <Button variant="outline-light" onClick={() => onChange(0)}>
+            Velg versjon
+          </Button>
         </Nav>
       </Navbar>
     </>

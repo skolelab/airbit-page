@@ -13,14 +13,15 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			                       {
-                               test: /\.(js|jsx)$/,
-                               exclude: /node_modules/,
-                               use: ["babel-loader"],
-                       },                       {
-                               test: /\.(css|scss)$/,
-                               use: ["style-loader", "css-loader"],
-                       },
+					   {
+						 test: /\.(js|jsx)$/,
+						 exclude: /node_modules/,
+						 use: ["babel-loader"],
+				 },                       {
+						 test: /\.(css|scss)$/,
+						 use: ["style-loader", "css-loader"],
+				 },
+
 			{
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
@@ -46,7 +47,9 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{ from: "src/pages", to: "." },
-				{ from: "src/img", to: "./airbit-page/img" }
+
+				{ from: "src/img", to: "./img" }
+
 
 			],
 		}),

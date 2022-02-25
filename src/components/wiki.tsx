@@ -19,7 +19,8 @@ const parseImage = (src: string) => {
   if (src.includes("http")) {
     return src;
   } else {
-    return "airbit-page/" + src;
+    return  src;
+
   }
 };
 
