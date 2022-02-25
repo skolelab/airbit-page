@@ -16,19 +16,22 @@ const App = () => {
   // choose English or Norwegian language
   const [language, setLanguage] = useState(false);
   const [wiki, setWiki] = useState(true);
-  const [version, setVersion] = useState(0);
+  // const [version, setVersion] = useState(0);
   const [cookies, setCookies] = useCookies(["version"]);
 
   const onChange = (val: number) => {
-    setVersion(val);
+    // setVersion(val);
     setCookies("version", val, { path: "/" });
   };
-  console.log(version);
+  // if (!version) {
+  //   onChange(cookies?.version);
+  // }
+  console.log(cookies.version);
 
   return (
     <>
       <Router>
-        {version ? (
+        {cookies?.version == 1 || cookies.version == 2 ? (
           <>
             <NavigationBar />
             {wiki && <WikiBar language={language} setLanguage={setLanguage} />}
@@ -46,7 +49,7 @@ const App = () => {
           </>
         ) : null}
         <Route exact path="/">
-          {version ? (
+          {cookies?.version == 1 || cookies?.version == 2 ? (
             <Landing
               version={cookies.version}
               language={language}
