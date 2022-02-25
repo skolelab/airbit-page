@@ -151,7 +151,7 @@ Du vil finne er mere detaljert beskrivelse samt linker til offisiell dokumentasj
 [airbit-gps-img]: img/airbit-gps-img.jpg
 [pm-sensor]: http://aqicn.org/aqicn/view/images/sensors/sds011-large.png
 [airbit-dht-img]: img/airbit-dht-img.jpg
-[powerbank-img]: iiglo-pocket-powerbank-img.jpeg
+[powerbank-img]: img/iiglo-pocket-powerbank-img.jpeg
 [resistor-img]: img/220Ohm_Res.png
 [male-pin-header-img]: img/6_Pin_Header.jpg
 [female-pin-header-img]: img/pin-header-female-10pin.jpg

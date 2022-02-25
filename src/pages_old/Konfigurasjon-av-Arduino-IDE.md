@@ -44,6 +44,6 @@ Du kan senere alltids gå tilbake til innstillingene senere og endre på dem om 
 [start-arduino-ide]: Start-Arduino-IDE
 [upload-empty-sketch]: Laste-opp-tom-sketch-til-Arduinoen
 
-[select-arduino-ide-port]: Arduino-IDE-Select-Port-Screen.png
-[menu-file-preferences]: Arduino-IDE-Menu-File-Preferences.png
-[preferences-linenumbers]: Arduino-IDE-Preferences-DisplayLineNumbers.png
+[select-arduino-ide-port]: img/Arduino-IDE-Select-Port-Screen.png
+[menu-file-preferences]: img/Arduino-IDE-Menu-File-Preferences.png
+[preferences-linenumbers]: img/Arduino-IDE-Preferences-DisplayLineNumbers.png
