@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from "react-router-dom";
 import NavigationBar from "./components/navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from "./components/landing";
@@ -12,20 +17,17 @@ import { useCookies } from "react-cookie";
 import "./style.css";
 
 const App = () => {
-  // choose English or Norwegian language
   const [wiki, setWiki] = useState(true);
   // const [version, setVersion] = useState(0);
-  const [cookies, setCookies] = useCookies(["version"]);
-
-  const onChange = (val: number) => {
-    // setVersion(val);
-    setCookies("version", val, { path: "/" });
-  };
+  const [cookies, _] = useCookies(["version"]);
 
   return (
     <>
       <Router>
-        {cookies?.version == 1 || cookies.version == 2 ? (
+        <Route exact path="/version">
+          <Version />
+        </Route>
+        {cookies.version == 1 || cookies.version == 2 ? (
           <>
             <NavigationBar />
             <Container fluid>
@@ -45,10 +47,10 @@ const App = () => {
           </>
         ) : null}
         <Route exact path="/">
-          {cookies?.version == 1 || cookies?.version == 2 ? (
+          {cookies.version == 1 || cookies.version == 2 ? (
             <Landing version={cookies.version} wiki={wiki} setWiki={setWiki} />
           ) : (
-            <Version onChange={onChange} />
+            <Redirect to="/version"></Redirect>
           )}
         </Route>
       </Router>
