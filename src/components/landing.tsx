@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction } from "react";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 type LandingProps = {
-  language: boolean;
   version: number;
   wiki: boolean;
   setWiki: Dispatch<SetStateAction<boolean>>;

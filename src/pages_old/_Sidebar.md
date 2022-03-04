@@ -12,7 +12,7 @@
 
 [hjem]: /wiki/Home
 [guides]: /wiki/airbit-Guider
-[building]: /wiki/Guide-Bygging-og-Lodding
+[building]: /wiki/Guide-bygging-lodding
 [setup]: /wiki/Guide-Oppsett-for-programmering
 [intro-programming]: /wiki/Introduksjon-til-Arduino-programmering
 [airbit-programming]: /wiki/airbit-Programmering

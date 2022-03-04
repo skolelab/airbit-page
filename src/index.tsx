@@ -13,7 +13,6 @@ import "./style.css";
 
 const App = () => {
   // choose English or Norwegian language
-  const [language, setLanguage] = useState(false);
   const [wiki, setWiki] = useState(true);
   // const [version, setVersion] = useState(0);
   const [cookies, setCookies] = useCookies(["version"]);
@@ -29,7 +28,6 @@ const App = () => {
         {cookies?.version == 1 || cookies.version == 2 ? (
           <>
             <NavigationBar />
-            {/* {wiki && <WikiBar language={language} setLanguage={setLanguage} />} */}
             <Container fluid>
               <Switch>
                 <Route
@@ -48,12 +46,7 @@ const App = () => {
         ) : null}
         <Route exact path="/">
           {cookies?.version == 1 || cookies?.version == 2 ? (
-            <Landing
-              version={cookies.version}
-              language={language}
-              wiki={wiki}
-              setWiki={setWiki}
-            />
+            <Landing version={cookies.version} wiki={wiki} setWiki={setWiki} />
           ) : (
             <Version onChange={onChange} />
           )}
