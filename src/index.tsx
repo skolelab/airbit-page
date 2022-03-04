@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavigationBar from "./components/navbar";
-import WikiBar from "./components/wikibar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from "./components/landing";
-// import Resources from "./components/resources";
 import Version from "./components/version";
+import Resources from "./components/resources";
 import Wiki from "./components/wiki";
 import { Container } from "react-bootstrap";
 import { useCookies } from "react-cookie";
@@ -24,14 +23,13 @@ const App = () => {
     setCookies("version", val, { path: "/" });
   };
 
-
   return (
     <>
       <Router>
         {cookies?.version == 1 || cookies.version == 2 ? (
           <>
             <NavigationBar />
-            {wiki && <WikiBar language={language} setLanguage={setLanguage} />}
+            {/* {wiki && <WikiBar language={language} setLanguage={setLanguage} />} */}
             <Container fluid>
               <Switch>
                 <Route
@@ -41,6 +39,9 @@ const App = () => {
                   )}
                 />
                 <Route exact path="/home"></Route>
+                <Route exact path="/resources">
+                  <Resources />
+                </Route>
               </Switch>
             </Container>
           </>
